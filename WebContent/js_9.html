@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mypage</title>
+<style type="text/css">
+	.c1{
+	width: 100px;
+	height: 100px;
+	border:1px solid red;
+	background-color: orange;
+	}
+	
+	.c2{
+	width: 200px;
+	height: 200px;
+	border:1px solid blue;
+	background-color: lime;
+	}
+</style>
+</head>
+
+
+
+<body>
+	<div id="d1" class="c1"></div>
+	<div id="d2" class="c1"></div>
+	<button onclick="f1()">click</button>
+	<button onclick="f2()">click2</button>
+
+	<script type="text/javascript">
+		function f1(){
+			var d = document.getElementById("d1");
+	
+			d.setAttribute("class","c2");
+		}
+		
+		function f2(){
+			var d = document.getElementById("d2");
+			d.style.width="500px";
+		}
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mypage</title>
+
+</head>
+
+
+
+<body>
+<!-- 
+	<input type="button">
+	<input type="submit"> -->
+	
+	<input type="text" id="info1"><br>
+	<button onClick="f1()">click</button>
+	<button onclick="f2(3)">click2</button>
+	<button onclick="f3()">click3</button>
+	<input type="button" onclick="f4()" value="click4">
+	
+	
+	<script type="text/javascript">
+	var info1 = document.getElementById("info1");
+	
+	function f1(){
+		alert("click");
+	}
+	
+	function f2(num){
+		alert(num*3);
+	}
+	function f3(){
+		var v = info1.value;
+		alert(v);
+	}
+	function f4(){
+		var v=prompt("숫자를 입력:");
+		info1.value=v;
+			
+	}
+	
+	
+	</script>
+
+
+</body>
+</html>

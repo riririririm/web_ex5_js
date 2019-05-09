@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>
+	Row <input type="text" id="row">
+	column <input type="text" id="col">
+	<button onclick="f1()">click</button>
+</div>
+
+<div id="tb">
+
+</div>
+
+<script type="text/javascript">
+	
+	
+	function f1(){
+		var row = document.getElementById("row").value;
+		var col = document.getElementById("col").value;
+		var tb = document.getElementById("tb");
+		var result='';
+		result='<table  border="1" width="200px" height="200px">';
+		
+		 for(var i=0;i<row;i++){
+			
+			 result+='<tr>';
+			
+			for(var j=0;j<col;j++){
+				result+='<td>a</td>';
+			 } 
+			result+='</tr>';
+		}
+		 result+='</table>';
+		 
+		tb.innerHTML=result;
+		alert(tb.innerHTML);
+	
+	}
+	
+	
+</script>
+
+</body>
+</html>

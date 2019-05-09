@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>
+	1<input type="radio" name="r" id="d1" class="r1" checked="checked" value="a">
+	2<input type="radio" name="r" id="d2" class="r1" value="b">
+	3<input type="radio" name="r" id="d3" class="r1" value="c">
+	4<input type="radio" name="r" id="d4" class="r1" value="d">
+	<button onclick="f1()">click</button>
+</div>
+
+
+
+<script type="text/javascript">
+	
+	
+	function f1(){
+		var r1 = document.getElementsByClassName("r1");
+		
+		for(var i=0;i<r1.length;i++){
+			if(r1[i].checked==true)
+				alert(r1[i].value);
+		}
+	
+	}
+	
+	
+</script>
+
+</body>
+</html>

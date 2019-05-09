@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+img{
+width:200px;
+height:200px;
+margin-top:10px;
+}
+.ch{
+	display:block;
+	margin: 0 auto;
+}
+.menu{
+width:250px;
+height:300px;
+border:1px solid gray;
+text-align: center;
+padding-top:10px;
+float:left;
+}
+.btn{
+clear: both;
+width:1260px;
+text-align: center;
+}
+.btn>button{
+margin-top:20px;
+margin-bottom:20px;
+}
+
+
+</style>
+
+</head>
+<body>
+<div class="content">
+<div class="menu">
+	<input type="checkbox" class="ch">
+	<div class="cont">
+		<img alt="cookie1" src="../images/cookie1.jpg">
+		<p>스쿱쿠키</p>
+	</div>	
+</div>
+
+<div class="menu">
+	<input type="checkbox" class="ch">
+	<div class="cont">
+		<img alt="cookie2" src="../images/cookie2.jpg">
+		<p>(할인)아메리칸초코칩쿠키6개</p>
+	</div>	
+</div>
+
+<div class="menu">
+	<input type="checkbox" class="ch">
+	<div class="cont">
+		<img alt="cake" src="../images/cake.jpg">
+		<p>카네이션 플라워케이크</p>	
+	</div>
+</div>
+
+<div class="menu">
+	<input type="checkbox" class="ch">
+	<div class="cont">
+		<img alt="cake2" src="../images/cake2.jpg">
+		<p>우유치즈설기 10개입</p>
+	</div>	
+</div>
+
+<div class="menu">
+	<input type="checkbox" class="ch">
+	<div class="cont">
+		<img alt="chocolate" src="../images/choco.jpg">
+		<p>민트 판 초콜렛 💚</p>	
+	</div>
+</div>
+
+
+<!---------------- button -------------->
+<div class="btn">
+	<button onclick="c()">click</button>
+</div>
+
+
+<!-- -----------체크된거 보이기---------- -->
+<div id="view_result">
+
+</div>
+
+
+
+</div>
+
+
+<script type="text/javascript">
+
+	function c(){
+		var ch = document.getElementsByClassName("ch");
+		var cont = document.getElementsByClassName("cont");
+		var vs =  document.getElementById("view_result");
+		var str="";
+		
+		for(var i=0;i<ch.length;i++){
+			if(ch[i].checked){
+				str+='<div class="menu">'+cont[i].innerHTML+'</div>';
+			}	
+		}
+		
+		vs.innerHTML=str;
+		
+		
+		
+	}
+	
+	
+</script>
+
+</body>
+</html>

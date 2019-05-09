@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mypage</title>
+
+</head>
+
+
+
+<body>
+	<img alt="bazzi" src="./images/bazzi.jpg" id="i1" class="c1" title="t1">
+	<br>
+	<button onclick="f1()">click</button>
+	<button onclick="f2()">change</button>
+	<button onclick="f3()">toggle</button>
+
+	<script type="text/javascript">
+	var check=true;
+		function f1(){
+			var a = document.getElementById("i1");
+			
+			//속성명 가져오기 a.getAttribute("속성명");
+			//속성명 변경이나 추가하기 a.setAttribute("속성명","값");
+			alert(a.getAttribute("alt"));
+			alert(a.getAttribute("src"));
+			alert(a.getAttribute("id"));
+			alert(a.getAttribute("class"));
+			alert(a.getAttribute("title"));
+			
+		
+		}
+		
+		function f2(){
+			var a = document.getElementById("i1");
+			a.setAttribute("src","./images/dao.jpg");
+		}
+		
+		function f3(){
+			var a = document.getElementById("i1");
+			/* if(a.getAttribute("src")==="./images/dao.jpg")
+				a.setAttribute("src","./images/bazzi.jpg");
+			else if(a.getAttribute("src")==="./images/bazzi.jpg")
+				a.setAttribute("src","./images/dao.jpg"); */
+				
+			/* if(a.title=="t1"){
+				a.src="./images/dao.jpg";
+				a.title="t2";
+			}else{
+				a.src="./images/bazzi.jpg";
+				a.title="t1";
+			} */
+			 if(check){
+				a.src="./images/dao.jpg";
+			 }else{
+				a.src="./images/bazzi.jpg";
+			 } 
+			 check=!check;
+		}
+	</script>
+
+</body>
+</html>

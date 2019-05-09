@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	//window.prompt();
+	var test=window.prompt("숫자를 입력하세요");
+	//console.log("입력값 : "+test);
+	
+	/*
+	1>1 
+	2>2
+	3>3		n%4
+	
+	4>10	10(n/4)+n%4
+	5>11  
+	6>12
+	7>13
+	
+	8>20 20+n%4
+	9>21
+	10>22
+	11>23
+	12>24
+	*/
+	test=10*(test/4)+test%4;
+	console.log("입력값 : "+test);
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
