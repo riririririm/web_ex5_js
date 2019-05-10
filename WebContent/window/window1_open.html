@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<script type="text/javascript">
+$(function(){
+	$("#c").click(function() {
+		opener.close();
+		close();
+	});
+});
+
+</script>
+
+<body>
+
+	<div class="container">
+		<h2>Join form</h2>
+		<form action="/action_page.php">
+			<div class="form-group">
+				<label for="id">ID:</label> 
+				<input type="text"
+					class="form-control" id="id" placeholder="Enter id"
+					name="id">
+			</div>
+			
+			<div class="form-group">
+				<label for="pwd">Password:</label> 
+				<input type="password"
+					class="form-control" id="pwd" placeholder="Enter password"
+					name="pwd">
+			</div>
+
+			
+			<input type="button" id="c" value="close">
+		
+		</form>
+	</div>
+
+</body>
+</html>

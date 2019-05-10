@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 
+ <script type="text/javascript">
+
+ 	$(function() {
+		$("#check").click(function() {
+			var id = document.getElementById("id").value;
+			if(id==""){
+				alert("사용하실 ID 입력하세요");
+			}else{
+				
+				alert("중복확인");	
+				opener.document.jform.id.value=id;
+				opener.document.getElementById("id_check_result").innerHTML="checked";
+			}
+		});
+		
+		$("#use").click(function() {
+			 var id = document.getElementById("id").value;
+			 if(id.length>=10 || id.length==0)
+				 alert("10자리 미만으로 설정해주세요.");
+			 else{
+				 opener.document.jform.id.value=id;
+				 opener.document.getElementById("id_result").innerHTML="OK";
+				 close();
+			 } 
+				
+		})
+		
+		
+	});
+ </script>
+</head>
+
+<body>
+
+	<div class="container">
+		<h2>아이디 중복확인</h2>
+		<form action="/action_page.php" id="cform">
+			<div class="form-group">
+				<label for="id">ID:</label> 
+				<input type="text"
+					class="form-control" id="id" placeholder="Enter id"
+					name="id">
+			</div>
+			
+			<input type="button" id="check" value="중복확인">
+ 			<input type="button" id="use" value="사용">
+		
+		</form>
+	</div>
+
+</body>
+</html>

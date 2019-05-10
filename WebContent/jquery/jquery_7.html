@@ -12,7 +12,114 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+$(function(){
+	var pwd1= document.getElementById("pwd");
+	var pwd2 = document.getElementById("pwd2");
+	var result = document.getElementById("result");
+	var result2 = document.getElementById("result2");
+	var id_check_result = document.getElementById("id_check_result");
+	var email = document.getElementById("email").value;
+	//비밀번호 최소 6자리 이상인지 확인
+	pwd1.addEventListener("keyup",function(){
+		if(pwd1.value.length<6)
+			result.innerHTML="비밀번호는 최소 6자리 이상이어야 합니다.";
+		else{
+			result.innerHTML="OK";
+			result2.innerHTML="";
+		}
+			
+	});
 	
+	//비밀번호 일치하는지 확인
+	pwd2.addEventListener("keyup", function() {
+		var msg=""; 
+		if(pwd1.value==pwd2.value)
+			msg="OK";
+		else
+			msg="비밀번호가 일치하지 않습니다.";
+		
+		result2.innerHTML=msg;
+	})
+	
+	//id중복확인 창 띄우기
+	$("#id_check").click(function() {
+		open("./IdCheck.html","_blank","width=500, height=300, top=200, left=300");
+	});
+	
+	//id값이 변하거나 포커스가 사라질때 div에 아이디 사용 가능여부 표시
+  	$("#id").on({
+ 		blur: function(){
+ 			print();
+ 		}, 
+ 		change: function(){
+ 			print();
+ 		}
+ 	}); 
+  	//id사용 가능여부 출력
+ 	function print(){
+	
+		if($("#id").val().length>=10)
+			$("#id_result").html("ID는 10자리 미만이어야 합니다.");
+		else
+			$("#id_result").html("OK");
+	 
+ 	}
+	
+	//join버튼 클릭시 form 유효성 확인
+	$("#join").click(function() {
+		var jform=document.forms["jform"];
+		var id = document.getElementById("id").value;
+		var blank=true;
+		/* if(jform.id.value=="" || jform.pwd.value=="" || jform.pwd2.value=="" ||jform.email.value=="" || jform.phone.value==""){
+			alert("모든 항목을 입력해주세요");
+		}else if(result.innerText!="OK"){
+			alert("비밀번호를 올바른 형식으로 설정해주세요");
+		}else if(result2.innerText!="OK"){
+			alert("비밀번호가 일치하지 않습니다.")
+		}else if(id.length>10){
+			alert("ID는 10자리 미만이어야 합니다.")
+		}
+		else{
+			alert("회원가입 성공!!");
+			jform.submit();
+		} */
+		
+		$(".form-control").each(function() {
+			if($(this).val()==""){
+				alert($(this).attr("name")+"다시 입력하세요");
+				blank=false;
+				return false;
+			}
+		});	
+		if(blank==true){
+			if(result.innerText!="OK"){
+				alert("비밀번호를 올바른 형식으로 설정해주세요");
+			}
+			else if(result2.innerText!="OK"){
+				alert("비밀번호가 일치하지 않습니다.");
+			}
+			else if(id.length>10){
+				alert("ID는 10자리 미만이어야 합니다.");
+			}
+			else if(id_check_result.innerText!="checked"){
+				alert("ID중복 확인을 해주세요.");
+			}else if(email.indexOf('@')==-1){
+				alert("email을 올바른 형식으로 입력해주세요.");
+			}
+			else{
+				alert("회원가입 성공!!");
+				jform.submit();
+			}
+				
+				
+			
+		}
+		
+	});
+	
+	
+	
+});
 </script>
 
 <style type="text/css">
@@ -23,43 +130,50 @@
 
 	<div class="container">
 		<h2>Join form</h2>
-		<form action="/action_page.php">
+		<form action="./jquery_8.html" name="jform">
 			<div class="form-group">
 				<label for="id">ID:</label> 
 				<input type="text"
-					class="form-control" id="id" placeholder="Enter id"
+					class="form-control" id="id" placeholder="Enter id" required="required"
 					name="id">
+				<input type="button"  class="btn btn-default" value="중복확인" 
+					id="id_check" style="margin-top:5px; margin-right:10px;  margin-bottom:10px; float:left;">
+				<div id="id_check_result" style="margin-top:10px; margin-right:10px; float:left;"></div>
+				<div id="id_result" style="margin-top:10px;"></div>
+			</div>
+			
+			
+			<div class="form-group" style="clear:both; margin-top:10px;">
+				<label for="pwd">Password:</label> 
+				<input type="password"
+					class="form-control" id="pwd" placeholder="Enter password" required="required"
+					name="pwd">
+				<div id="result"></div>
 			</div>
 			
 			<div class="form-group">
 				<label for="pwd">Password:</label> 
 				<input type="password"
-					class="form-control" id="pwd" placeholder="Enter password"
-					name="pwd">
-			</div>
-			
-			<div class="form-group">
-				<label for="pwd">Password:</label> 
-				<input type="password"
-					class="form-control" id="pwd" placeholder="Enter password"
-					name="pwd">
+					class="form-control" id="pwd2" placeholder="Enter password" required="required"
+					name="pwd2">
+				<div id="result2" ></div>
 			</div>
 			
 			<div class="form-group">
 				<label for="email">Email:</label> 
 				<input type="email"
-					class="form-control" id="email" placeholder="Enter email"
+					class="form-control" id="email" placeholder="Enter email" required="required"
 					name="email">
 			</div>
 			
 			<div class="form-group">
 				<label for="phone">phone:</label> 
 				<input type="text"
-					class="form-control" id="phone" placeholder="Enter phone number"
+					class="form-control" id="phone" placeholder="Enter phone number" required="required"
 					name="phone">
 			</div>
 			
-			<input type="button" class="btn btn-default" value="join">
+			<input type="button" class="btn btn-default" value="join" id="join">
 		
 		</form>
 	</div>
